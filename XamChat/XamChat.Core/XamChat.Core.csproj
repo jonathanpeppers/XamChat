@@ -37,6 +37,11 @@
     <Compile Include="Conversation.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="IWebService.cs" />
+    <Compile Include="Fakes\FakeWebService.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Fakes\" />
+  </ItemGroup>
 </Project>
