@@ -24,29 +24,56 @@ namespace XamChat.Core
             return new User { Id = 1, Username = username };
         }
 
-        public Task<User> Register(User user)
+        public async Task<User> Register(User user)
         {
-            throw new NotImplementedException();
+            await Sleep();
+
+            return user;
         }
 
-        public Task<User[]> GetFriends(int userId)
+        public async Task<User[]> GetFriends(int userId)
         {
-            throw new NotImplementedException();
+            await Sleep();
+
+            return new[]
+            {
+                new User { Id = 2, Username = "bobama" },
+                new User { Id = 3, Username = "bobloblaw" },
+                new User { Id = 4, Username = "gmichael" },
+                new User { Id = 5, Username = "scooper" },
+            };
         }
 
-        public Task<User> AddFriend(string username)
+        public async Task<User> AddFriend(string username)
         {
-            throw new NotImplementedException();
+            await Sleep();
+
+            return new User { Id = 6, Username = username };
         }
 
-        public Task<Conversation[]> GetConversations(int userId)
+        public async Task<Conversation[]> GetConversations(int userId)
         {
-            throw new NotImplementedException();
+            await Sleep();
+
+            return new[]
+            {
+                new Conversation { Id = 1, UserId = 2 },
+                new Conversation { Id = 2, UserId = 3 },
+                new Conversation { Id = 3, UserId = 4 },
+            };
         }
 
-        public Task<Message[]> GetMessages(int conversationId)
+        public async Task<Message[]> GetMessages(int conversationId)
         {
-            throw new NotImplementedException();
+            await Sleep();
+
+            return new[]
+            {
+                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Text = "Hey" },
+                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Text = "What's up?" },
+                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Text = "Have you seen that new movie?" },
+                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Text = "It's great!" },
+            };
         }
     }
 }
