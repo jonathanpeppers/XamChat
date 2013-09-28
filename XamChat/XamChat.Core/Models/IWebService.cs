@@ -11,11 +11,13 @@ namespace XamChat.Core
 
         Task<User[]> GetFriends(int userId);
 
-        Task<User> AddFriend(string username);
+        Task<User> AddFriend(int userId, string username);
 
         Task<Conversation[]> GetConversations(int userId);
 
         Task<Message[]> GetMessages(int conversationId);
+
+        Task SendMessage(Message message);
     }
 }
 

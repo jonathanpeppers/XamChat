@@ -44,7 +44,7 @@ namespace XamChat.Core
             };
         }
 
-        public async Task<User> AddFriend(string username)
+        public async Task<User> AddFriend(int userId, string username)
         {
             await Sleep();
 
@@ -74,6 +74,11 @@ namespace XamChat.Core
                 new Message { Id = 1, ConversationId = conversationId, UserId = 2, Text = "Have you seen that new movie?" },
                 new Message { Id = 2, ConversationId = conversationId, UserId = 1, Text = "It's great!" },
             };
+        }
+
+        public async Task SendMessage(Message message)
+        {
+            await Sleep();
         }
     }
 }
