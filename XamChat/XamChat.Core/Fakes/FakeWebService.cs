@@ -76,9 +76,11 @@ namespace XamChat.Core
             };
         }
 
-        public async Task SendMessage(Message message)
+        public async Task<Message> SendMessage(Message message)
         {
             await Sleep();
+
+            return message;
         }
     }
 }

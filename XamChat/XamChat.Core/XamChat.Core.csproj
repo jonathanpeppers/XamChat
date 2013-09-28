@@ -46,6 +46,7 @@
     <Compile Include="Models\ISettings.cs" />
     <Compile Include="Fakes\FakeSettings.cs" />
     <Compile Include="ViewModels\FriendViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

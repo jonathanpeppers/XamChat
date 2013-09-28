@@ -17,7 +17,7 @@ namespace XamChat.Core
 
         Task<Message[]> GetMessages(int conversationId);
 
-        Task SendMessage(Message message);
+        Task<Message> SendMessage(Message message);
     }
 }
 
