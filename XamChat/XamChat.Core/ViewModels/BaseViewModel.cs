@@ -6,6 +6,9 @@ namespace XamChat.Core
 {
     public class BaseViewModel
     {
+        protected readonly IWebService service = ServiceContainer.Resolve<IWebService>();
+        protected readonly ISettings settings = ServiceContainer.Resolve<ISettings>();
+
         public event EventHandler IsBusyChanged = delegate { };
 
         private bool isBusy = false;

@@ -3,13 +3,15 @@ using System.Threading.Tasks;
 
 namespace XamChat.Core
 {
-    public class LoginViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
         public string Username { get; set; }
 
         public string Password { get; set; }
 
-        public async Task Login()
+        public string ConfirmPassword { get; set; }
+
+        public async Task Register()
         {
             if (string.IsNullOrEmpty(Username))
                 throw new Exception("Username is blank.");
@@ -17,10 +19,17 @@ namespace XamChat.Core
             if (string.IsNullOrEmpty(Password))
                 throw new Exception("Password is blank.");
 
+            if (Password != ConfirmPassword)
+                throw new Exception("Passwords do not match.");
+
             IsBusy = true;
             try
             {
-                settings.User = await service.Login(Username, Password);
+                settings.User = await service.Register(new User
+                {
+                    Username = Username,
+                    Password = Password,
+                });
                 settings.Save();
             }
             finally
