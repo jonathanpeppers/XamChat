@@ -61,9 +61,9 @@ namespace XamChat.Core
 
             return new[]
             {
-                new Conversation { Id = 1, UserId = 2 },
-                new Conversation { Id = 2, UserId = 3 },
-                new Conversation { Id = 3, UserId = 4 },
+                new Conversation { Id = 1, UserId = 2, Username = "bobama" },
+                new Conversation { Id = 2, UserId = 3, Username = "bobloblaw" },
+                new Conversation { Id = 3, UserId = 4, Username = "gmichael" },
             };
         }
 
@@ -73,10 +73,10 @@ namespace XamChat.Core
 
             return new[]
             {
-                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Text = "Hey" },
-                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Text = "What's up?" },
-                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Text = "Have you seen that new movie?" },
-                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Text = "It's great!" },
+                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Hey" },
+                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "What's up?" },
+                new Message { Id = 1, ConversationId = conversationId, UserId = 2, Username = "bobama", Text = "Have you seen that new movie?" },
+                new Message { Id = 2, ConversationId = conversationId, UserId = 1, Username = "testuser", Text = "It's great!" },
             };
         }
 

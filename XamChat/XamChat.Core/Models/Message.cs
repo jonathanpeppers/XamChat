@@ -10,8 +10,7 @@ namespace XamChat.Core
 
         public int UserId { get; set; }
 
-        //Readonly, used for displaying on UI
-        public string Username { get; private set; }
+        public string Username { get; set; }
 
         public string Text { get; set; }
     }
