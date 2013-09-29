@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E121AD86-B0CB-45D6-B59A-B4493DCA58DB}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>XamChat.Tests.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>XamChatTestsiOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+    <MtouchDebug>true</MtouchDebug>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchLink>None</MtouchLink>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <MtouchDebug>true</MtouchDebug>
+    <ConsolePause>false</ConsolePause>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Ad-Hoc</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <BuildIpa>true</BuildIpa>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AppStore|iPhone' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\AppStore</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution</CodesignKey>
+    <ConsolePause>false</ConsolePause>
+    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="MonoTouch.NUnitLite" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
+    <Folder Include="Tests\ViewModels\" />
+    <Folder Include="Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="UnitTestAppDelegate.cs" />
+    <Compile Include="..\XamChat.Tests\ViewModels\FriendViewModelTests.cs">
+      <Link>Tests\ViewModels\FriendViewModelTests.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Tests\ViewModels\LoginViewModelTests.cs">
+      <Link>Tests\ViewModels\LoginViewModelTests.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Tests\ViewModels\MessageViewModelTests.cs">
+      <Link>Tests\ViewModels\MessageViewModelTests.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Tests\ViewModels\RegisterViewModelTests.cs">
+      <Link>Tests\ViewModels\RegisterViewModelTests.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ServiceContainer.cs">
+      <Link>Core\ServiceContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Fakes\FakeSettings.cs">
+      <Link>Core\Fakes\FakeSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Fakes\FakeWebService.cs">
+      <Link>Core\Fakes\FakeWebService.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\Conversation.cs">
+      <Link>Core\Models\Conversation.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\ISettings.cs">
+      <Link>Core\Models\ISettings.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\IWebService.cs">
+      <Link>Core\Models\IWebService.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\Message.cs">
+      <Link>Core\Models\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\User.cs">
+      <Link>Core\Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\BaseViewModel.cs">
+      <Link>Core\ViewModels\BaseViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\FriendViewModel.cs">
+      <Link>Core\ViewModels\FriendViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\LoginViewModel.cs">
+      <Link>Core\ViewModels\LoginViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\MessageViewModel.cs">
+      <Link>Core\ViewModels\MessageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\RegisterViewModel.cs">
+      <Link>Core\ViewModels\RegisterViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Tests\Test.cs">
+      <Link>Tests\Test.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
