@@ -14,7 +14,11 @@ namespace XamChat.Core
 
         private Task Sleep()
         {
+#if NUNIT
+            return Task.FromResult(true);
+#else
             return Task.Delay(SleepDuration);
+#endif
         }
 
         public async Task<User> Login(string username, string password)
