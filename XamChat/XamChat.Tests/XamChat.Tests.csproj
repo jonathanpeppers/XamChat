@@ -49,5 +49,8 @@
   <ItemGroup>
     <Compile Include="ViewModels\LoginViewModelTests.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="ViewModels\RegisterViewModelTests.cs" />
+    <Compile Include="ViewModels\FriendViewModelTests.cs" />
+    <Compile Include="ViewModels\MessageViewModelTests.cs" />
   </ItemGroup>
 </Project>

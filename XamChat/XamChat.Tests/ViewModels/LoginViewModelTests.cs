@@ -33,6 +33,7 @@ namespace XamChat.Tests
         [Test, ExpectedException(typeof(AggregateException))]
         public void LoginWithNoUsernameOrPassword()
         {
+            //Throws an exception
             loginViewModel.Login().Wait();
         }
 
@@ -41,6 +42,7 @@ namespace XamChat.Tests
         {
             loginViewModel.Username = "testuser";
 
+            //Throws an exception
             loginViewModel.Login().Wait();
         }
 
@@ -49,6 +51,7 @@ namespace XamChat.Tests
         {
             loginViewModel.Password = "password";
 
+            //Throws an exception
             loginViewModel.Login().Wait();
         }
     }
