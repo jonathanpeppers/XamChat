@@ -89,6 +89,8 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="Core\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -135,6 +137,11 @@
     <Compile Include="..\XamChat.Core\ViewModels\RegisterViewModel.cs">
       <Link>Core\ViewModels\RegisterViewModel.cs</Link>
     </Compile>
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LoginController.designer.cs">
+      <DependentUpon>LoginController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\UIKitExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
