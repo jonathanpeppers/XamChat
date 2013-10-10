@@ -19,24 +19,43 @@ namespace XamChat.iOS
         {
             base.ViewDidLoad();
 
-            login.TouchUpInside += OnLogin;
+            login.TouchUpInside += async (sender, e) => 
+            {
+                loginViewModel.Username = username.Text;
+                loginViewModel.Password = password.Text;
+
+                try
+                {
+                    await loginViewModel.Login();
+
+                    //TODO: move to the next screen
+                }
+                catch (Exception exc)
+                {
+                    exc.DisplayError();
+                }
+            };
         }
 
-        async void OnLogin (object sender, EventArgs e)
+        public override void ViewWillAppear(bool animated)
         {
-            loginViewModel.Username = username.Text;
-            loginViewModel.Password = password.Text;
+            base.ViewWillAppear(animated);
 
-            try
-            {
-                await loginViewModel.Login();
+            loginViewModel.IsBusyChanged += OnIsBusyChanged;
+        }
 
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
 
-            }
-            catch (Exception exc)
-            {
-                exc.DisplayError();
-            }
+            loginViewModel.IsBusyChanged += OnIsBusyChanged;
+        }
+
+        void OnIsBusyChanged (object sender, EventArgs e)
+        {
+            username.Enabled =
+                password.Enabled = 
+                login.Enabled = !loginViewModel.IsBusy;
         }
 	}
 }
