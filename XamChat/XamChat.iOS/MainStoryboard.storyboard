@@ -31,13 +31,13 @@
                                 <rect key="frame" x="60" y="120" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Jzn-jM-RJ4">
                                 <rect key="frame" x="60" y="158" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EWJ-2Z-0Ub">
                                 <rect key="frame" x="137" y="196" width="46" height="30"/>
@@ -64,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="454" y="97"/>
         </scene>
-        <!--Conversations Controller-->
+        <!--Conversations Controller - Conversations-->
         <scene sceneID="bWn-T1-1Kj">
             <objects>
                 <tableViewController id="qkM-sV-b0R" customClass="ConversationsController" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                             <outlet property="delegate" destination="qkM-sV-b0R" id="0ob-JL-aIp"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ode-BX-ZSc"/>
+                    <navigationItem key="navigationItem" title="Conversations" id="ode-BX-ZSc"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="usV-Iw-qPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

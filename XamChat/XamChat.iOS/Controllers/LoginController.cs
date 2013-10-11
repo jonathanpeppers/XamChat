@@ -19,22 +19,20 @@ namespace XamChat.iOS
         {
             base.ViewDidLoad();
 
-            login.TouchUpInside += async (sender, e) => 
+            username.ShouldReturn = _ => 
             {
-                loginViewModel.Username = username.Text;
-                loginViewModel.Password = password.Text;
-
-                try
-                {
-                    await loginViewModel.Login();
-
-                    PerformSegue("OnLogin", this);
-                }
-                catch (Exception exc)
-                {
-                    exc.DisplayError();
-                }
+                password.BecomeFirstResponder();
+                return false;
             };
+            password.ShouldReturn = _ =>
+            {
+                OnLogin(this, EventArgs.Empty);
+                return false;
+            };
+            login.TouchUpInside += OnLogin;
+
+            //Custom back button
+            NavigationItem.BackBarButtonItem = new UIBarButtonItem("Logout", UIBarButtonItemStyle.Plain, null);
         }
 
         public override void ViewWillAppear(bool animated)
@@ -57,6 +55,23 @@ namespace XamChat.iOS
                 password.Enabled = 
                 login.Enabled = 
                 indicator.Hidden = !loginViewModel.IsBusy;
+        }
+
+        async void OnLogin (object sender, EventArgs e)
+        {
+            loginViewModel.Username = username.Text;
+            loginViewModel.Password = password.Text;
+
+            try
+            {
+                await loginViewModel.Login();
+
+                PerformSegue("OnLogin", this);
+            }
+            catch (Exception exc)
+            {
+                exc.DisplayError();
+            }
         }
 	}
 }
