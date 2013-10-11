@@ -13,6 +13,9 @@ namespace XamChat.iOS
 	partial class LoginController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UIActivityIndicatorView indicator { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UIButton login { get; set; }
 
 		[Outlet]
@@ -23,9 +26,9 @@ namespace XamChat.iOS
 		
 		void ReleaseDesignerOutlets ()
 		{
-			if (username != null) {
-				username.Dispose ();
-				username = null;
+			if (login != null) {
+				login.Dispose ();
+				login = null;
 			}
 
 			if (password != null) {
@@ -33,9 +36,14 @@ namespace XamChat.iOS
 				password = null;
 			}
 
-			if (login != null) {
-				login.Dispose ();
-				login = null;
+			if (username != null) {
+				username.Dispose ();
+				username = null;
+			}
+
+			if (indicator != null) {
+				indicator.Dispose ();
+				indicator = null;
 			}
 		}
 	}

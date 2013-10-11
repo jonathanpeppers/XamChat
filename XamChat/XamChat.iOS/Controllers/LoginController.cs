@@ -55,7 +55,8 @@ namespace XamChat.iOS
         {
             username.Enabled =
                 password.Enabled = 
-                login.Enabled = !loginViewModel.IsBusy;
+                login.Enabled = 
+                indicator.Hidden = !loginViewModel.IsBusy;
         }
 	}
 }

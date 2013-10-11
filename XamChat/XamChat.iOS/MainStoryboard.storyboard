@@ -44,11 +44,16 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login"/>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="cZy-U3-4vL">
+                                <rect key="frame" x="150" y="145" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="XamChat" id="u1G-TC-ahA"/>
                     <connections>
+                        <outlet property="indicator" destination="cZy-U3-4vL" id="CrM-oy-yXB"/>
                         <outlet property="login" destination="EWJ-2Z-0Ub" id="CV6-sr-8jP"/>
                         <outlet property="password" destination="Jzn-jM-RJ4" id="OB7-Fh-k7x"/>
                         <outlet property="username" destination="JF0-dP-isi" id="4Zp-kV-693"/>
