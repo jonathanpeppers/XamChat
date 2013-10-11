@@ -28,7 +28,7 @@ namespace XamChat.iOS
                 {
                     await loginViewModel.Login();
 
-                    //TODO: move to the next screen
+                    PerformSegue("OnLogin", this);
                 }
                 catch (Exception exc)
                 {

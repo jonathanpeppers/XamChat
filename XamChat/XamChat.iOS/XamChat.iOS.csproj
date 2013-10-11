@@ -142,6 +142,10 @@
       <DependentUpon>LoginController.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilities\UIKitExtensions.cs" />
+    <Compile Include="Controllers\ConversationsController.cs" />
+    <Compile Include="Controllers\ConversationsController.designer.cs">
+      <DependentUpon>ConversationsController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
