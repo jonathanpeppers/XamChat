@@ -13,5 +13,52 @@ namespace XamChat.iOS
 		public FriendsController (IntPtr handle) : base (handle)
 		{
 		}
+
+        public override void ViewDidLoad()
+        {
+            base.ViewDidLoad();
+
+            TableView.Source = new TableSource();
+        }
+
+        public async override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+
+            try
+            {
+                await friendViewModel.GetFriends();
+
+                TableView.ReloadData();
+            }
+            catch (Exception exc)
+            {
+                exc.DisplayError();
+            }
+        }
+
+        private class TableSource : UITableViewSource
+        {
+            const string CellName = "FriendCell";
+            readonly FriendViewModel friendViewModel = ServiceContainer.Resolve<FriendViewModel>();
+
+            public override int RowsInSection(UITableView tableview, int section)
+            {
+                return friendViewModel.Friends == null ? 0 : friendViewModel.Friends.Length; 
+            }
+
+            public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
+            {
+                var friend = friendViewModel.Friends [indexPath.Row];
+                var cell = tableView.DequeueReusableCell(CellName);
+                if (cell == null)
+                {
+                    cell = new UITableViewCell(UITableViewCellStyle.Default, CellName);
+                    cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+                }
+                cell.TextLabel.Text = friend.Username;
+                return cell;
+            }
+        }
 	}
 }

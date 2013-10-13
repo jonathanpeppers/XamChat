@@ -39,6 +39,9 @@ namespace XamChat.iOS
         {
             base.ViewWillAppear(animated);
 
+            username.Text =
+                password.Text = string.Empty;
+
             loginViewModel.IsBusyChanged += OnIsBusyChanged;
         }
 
