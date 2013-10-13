@@ -54,7 +54,8 @@ namespace XamChat.iOS
                 if (cell == null)
                 {
                     cell = new UITableViewCell(UITableViewCellStyle.Default, CellName);
-                    cell.Accessory = UITableViewCellAccessory.DisclosureIndicator;
+                    cell.AccessoryView = UIButton.FromType(UIButtonType.ContactAdd);
+                    cell.AccessoryView.UserInteractionEnabled = false;
                 }
                 cell.TextLabel.Text = friend.Username;
                 return cell;
