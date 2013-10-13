@@ -80,6 +80,13 @@ namespace XamChat.Core
                 IsBusy = false;
             }
         }
+
+        public void Clear()
+        {
+            Conversation = null;
+            Messages = null;
+            Text = null;
+        }
     }
 }
 
