@@ -31,6 +31,10 @@ namespace XamChat.iOS
                 await messageViewModel.GetMessages();
 
                 TableView.ReloadData();
+
+                //Scroll to end
+                var indexPath = NSIndexPath.FromRowSection(messageViewModel.Messages.Length - 1, 0);
+                TableView.ScrollToRow(indexPath, UITableViewScrollPosition.Bottom, false);
             }
             catch (Exception exc)
             {
