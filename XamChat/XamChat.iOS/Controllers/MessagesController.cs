@@ -49,7 +49,7 @@ namespace XamChat.iOS
             messageViewModel.Clear();
         }
 
-        private class TableSource : UITableViewSource
+        class TableSource : UITableViewSource
         {
             const string MyCellName = "MyCell";
             const string TheirCellName = "TheirCell";

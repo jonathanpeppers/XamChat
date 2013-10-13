@@ -37,7 +37,7 @@ namespace XamChat.iOS
             }
         }
 
-        private class TableSource : UITableViewSource
+        class TableSource : UITableViewSource
         {
             const string CellName = "FriendCell";
             readonly FriendViewModel friendViewModel = ServiceContainer.Resolve<FriendViewModel>();
