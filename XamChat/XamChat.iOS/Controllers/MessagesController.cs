@@ -9,6 +9,10 @@ namespace XamChat.iOS
 	public partial class MessagesController : UITableViewController
 	{
         readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
+        UIToolbar toolbar;
+        UITextField message;
+        UIBarButtonItem send;
+        NSObject willShowObserver, willHideObserver;
 
 		public MessagesController (IntPtr handle) : base (handle)
 		{
@@ -18,6 +22,22 @@ namespace XamChat.iOS
         {
             base.ViewDidLoad();
 
+            message = new UITextField(new RectangleF(0, 0, 240, 32))
+            {
+                BorderStyle = UITextBorderStyle.RoundedRect,
+                ReturnKeyType = UIReturnKeyType.Send,
+                ShouldReturn = _ => 
+                {
+                    Send();
+                    return false;
+                },
+            };
+            send = new UIBarButtonItem("Send", UIBarButtonItemStyle.Plain, (sender, e) => Send());
+
+            toolbar = new UIToolbar(new RectangleF(0, TableView.Frame.Height - 44, TableView.Frame.Width, 44));
+            toolbar.Items = new UIBarButtonItem[] { new UIBarButtonItem(message), send };
+            NavigationController.View.AddSubview(toolbar);
+
             TableView.Source = new TableSource();
         }
 
@@ -26,15 +46,20 @@ namespace XamChat.iOS
             base.ViewWillAppear(animated);
 
             Title = messageViewModel.Conversation.Username;
+
+            //Keyboard notifications
+            willShowObserver = UIKeyboard.Notifications.ObserveWillShow((sender, e) => OnKeyboardNotification(e));
+            willHideObserver = UIKeyboard.Notifications.ObserveWillHide((sender, e) => OnKeyboardNotification(e));
+
+            //IsBusy
+            messageViewModel.IsBusyChanged += OnIsBusyChanged;
+
             try
             {
                 await messageViewModel.GetMessages();
 
                 TableView.ReloadData();
-
-                //Scroll to end
-                var indexPath = NSIndexPath.FromRowSection(messageViewModel.Messages.Length - 1, 0);
-                TableView.ScrollToRow(indexPath, UITableViewScrollPosition.Bottom, false);
+                message.BecomeFirstResponder();
             }
             catch (Exception exc)
             {
@@ -42,11 +67,103 @@ namespace XamChat.iOS
             }
         }
 
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+
+            //Unsubcribe notifications
+            if (willShowObserver != null)
+            {
+                willShowObserver.Dispose();
+                willShowObserver = null;
+            }
+            if (willHideObserver != null)
+            {
+                willHideObserver.Dispose();
+                willHideObserver = null;
+            }
+
+            //IsBusy
+            messageViewModel.IsBusyChanged -= OnIsBusyChanged;
+        }
+
         public override void ViewDidDisappear(bool animated)
         {
             base.ViewDidDisappear(animated);
 
             messageViewModel.Clear();
+        }
+
+        void OnIsBusyChanged (object sender, EventArgs e)
+        {
+            message.Enabled =
+                send.Enabled = !messageViewModel.IsBusy;
+        }
+
+        void ScrollToEnd()
+        {
+            TableView.ContentOffset = new PointF(0, TableView.ContentSize.Height - TableView.Frame.Height);
+        }
+
+        async void Send()
+        {
+            if (string.IsNullOrEmpty(message.Text))
+            {
+                message.ResignFirstResponder();
+                return;
+            }
+
+            messageViewModel.Text = message.Text;
+
+            await messageViewModel.SendMessage();
+
+            message.Text =
+                messageViewModel.Text = string.Empty;
+            TableView.ReloadData();
+            message.ResignFirstResponder();
+            ScrollToEnd();
+        }
+
+        void OnKeyboardNotification (UIKeyboardEventArgs e)
+        {
+            //Check if the keyboard is becoming visible
+            bool willShow = e.Notification.Name == UIKeyboard.WillShowNotification;
+
+            //Start an animation, using values from the keyboard
+            UIView.BeginAnimations("AnimateForKeyboard");
+            UIView.SetAnimationBeginsFromCurrentState(true);
+            UIView.SetAnimationDuration(e.AnimationDuration);
+            UIView.SetAnimationCurve(e.AnimationCurve);
+
+            //Pass the notification, calculating keyboard height, etc.
+            if (willShow)
+            {
+                var keyboardFrame = e.FrameEnd;
+
+                var frame = TableView.Frame;
+                frame.Height -= keyboardFrame.Height;
+                TableView.Frame = frame;
+
+                frame = toolbar.Frame;
+                frame.Y -= keyboardFrame.Height;
+                toolbar.Frame = frame;
+            }
+            else
+            {
+                var keyboardFrame = e.FrameBegin;
+
+                var frame = TableView.Frame;
+                frame.Height += keyboardFrame.Height;
+                TableView.Frame = frame;
+
+                frame = toolbar.Frame;
+                frame.Y += keyboardFrame.Height;
+                toolbar.Frame = frame;
+            }
+
+            //Commit the animation
+            UIView.CommitAnimations(); 
+            ScrollToEnd();
         }
 
         class TableSource : UITableViewSource

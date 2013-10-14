@@ -65,6 +65,7 @@ namespace XamChat.Core
                     UserId = settings.User.Id,
                     ConversationId = Conversation.Id,
                     Text = Text,
+                    Date = DateTime.Now,
                 });
 
                 //Update our local list of messages
