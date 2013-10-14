@@ -39,6 +39,10 @@ namespace XamChat.iOS
             NavigationController.View.AddSubview(toolbar);
 
             TableView.Source = new TableSource();
+            TableView.TableFooterView = new UIView(new RectangleF(0, 0, TableView.Frame.Width, 44))
+            {
+                BackgroundColor = UIColor.Clear,
+            };
         }
 
         public async override void ViewWillAppear(bool animated)
