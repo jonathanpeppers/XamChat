@@ -135,7 +135,6 @@ namespace XamChat.iOS
 
             //Start an animation, using values from the keyboard
             UIView.BeginAnimations("AnimateForKeyboard");
-            UIView.SetAnimationBeginsFromCurrentState(true);
             UIView.SetAnimationDuration(e.AnimationDuration);
             UIView.SetAnimationCurve(e.AnimationCurve);
 
