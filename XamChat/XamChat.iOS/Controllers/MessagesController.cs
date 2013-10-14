@@ -111,20 +111,25 @@ namespace XamChat.iOS
 
         async void Send()
         {
+            //Just hide the keyboard if they didn’t type anything
             if (string.IsNullOrEmpty(message.Text))
             {
                 message.ResignFirstResponder();
                 return;
             }
 
+            //Set the text, send the message
             messageViewModel.Text = message.Text;
-
             await messageViewModel.SendMessage();
 
+            //Clear the text field & view model
             message.Text =
                 messageViewModel.Text = string.Empty;
+            //Reload the table
             TableView.ReloadData();
+            //Hide the keyboard
             message.ResignFirstResponder();
+            //Scroll to end, to see the new message
             ScrollToEnd();
         }
 
