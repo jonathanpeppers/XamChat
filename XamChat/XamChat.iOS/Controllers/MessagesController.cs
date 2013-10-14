@@ -139,7 +139,7 @@ namespace XamChat.iOS
             UIView.SetAnimationDuration(e.AnimationDuration);
             UIView.SetAnimationCurve(e.AnimationCurve);
 
-            //Pass the notification, calculating keyboard height, etc.
+            //Calculate keyboard height, etc.
             if (willShow)
             {
                 var keyboardFrame = e.FrameEnd;
