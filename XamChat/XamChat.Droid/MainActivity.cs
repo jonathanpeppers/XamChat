@@ -8,7 +8,7 @@ using Android.OS;
 
 namespace XamChat.Droid
 {
-    [Activity(Label = "XamChat.Droid", MainLauncher = true)]
+    [Activity(Label = "@string/ApplicationName", Theme = "@android:style/Theme.Holo.Light", MainLauncher = true)]
     public class MainActivity : Activity
     {
         int count = 1;
