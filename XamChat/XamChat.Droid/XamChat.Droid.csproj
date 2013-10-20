@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5AC60961-CFB2-459F-B63A-20FF21CF39C6}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>XamChat.Droid</RootNamespace>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
+    <AssemblyName>XamChat.Droid</AssemblyName>
+    <TargetFrameworkVersion>v4.3</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\XamChat.Core\ServiceContainer.cs">
+      <Link>Code\ServiceContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Fakes\FakeSettings.cs">
+      <Link>Code\Fakes\FakeSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Fakes\FakeWebService.cs">
+      <Link>Code\Fakes\FakeWebService.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\Conversation.cs">
+      <Link>Code\Models\Conversation.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\ISettings.cs">
+      <Link>Code\Models\ISettings.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\IWebService.cs">
+      <Link>Code\Models\IWebService.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\Message.cs">
+      <Link>Code\Models\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\Models\User.cs">
+      <Link>Code\Models\User.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\BaseViewModel.cs">
+      <Link>Code\ViewModels\BaseViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\FriendViewModel.cs">
+      <Link>Code\ViewModels\FriendViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\LoginViewModel.cs">
+      <Link>Code\ViewModels\LoginViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\MessageViewModel.cs">
+      <Link>Code\ViewModels\MessageViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.Core\ViewModels\RegisterViewModel.cs">
+      <Link>Code\ViewModels\RegisterViewModel.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Main.axml" />
+    <AndroidResource Include="Resources\values\Strings.xml" />
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Code\" />
+  </ItemGroup>
+</Project>
