@@ -37,11 +37,11 @@ namespace XamChat.Droid
             {
                 await viewModel.Login();
 
-                //TODO: navigate
+                //TODO: navigate to a new activity
             }
             catch (Exception exc)
             {
-                exc.DisplayError(this);
+                DisplayError(exc);
             }
         }
     }

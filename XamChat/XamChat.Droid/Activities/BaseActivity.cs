@@ -46,6 +46,26 @@ namespace XamChat.Droid
             viewModel.IsBusyChanged -= OnIsBusyChanged;
         }
 
+        protected void DisplayError(Exception exc)
+        {
+            string error;
+            AggregateException aggregate = exc as AggregateException;
+            if (aggregate != null)
+            {
+                error = aggregate.InnerExceptions.First().Message;
+            }
+            else
+            {
+                error = exc.Message;
+            }
+
+            new AlertDialog.Builder(this)
+                .SetTitle(Resource.String.ErrorTitle)
+                .SetMessage(error)
+                .SetPositiveButton(Android.Resource.String.Ok, (IDialogInterfaceOnClickListener)null)
+                .Show();
+        }
+
         void OnIsBusyChanged (object sender, EventArgs e)
         {
             if (viewModel.IsBusy)

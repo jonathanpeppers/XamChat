@@ -88,7 +88,6 @@
       <Link>Code\ViewModels\RegisterViewModel.cs</Link>
     </Compile>
     <Compile Include="Application.cs" />
-    <Compile Include="Utilities\UIKitExtensions.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
   </ItemGroup>
@@ -105,7 +104,6 @@
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Code\" />
-    <Folder Include="Utilities\" />
     <Folder Include="Activities\" />
   </ItemGroup>
 </Project>
