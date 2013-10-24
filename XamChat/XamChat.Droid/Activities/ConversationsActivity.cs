@@ -41,11 +41,11 @@ namespace XamChat.Droid
         class Adapter : BaseAdapter<Conversation>
         {
             readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
-            readonly Context context;
+            readonly LayoutInflater inflator;
 
             public Adapter(Context context)
             {
-                this.context = context;
+                inflator = (LayoutInflater)context.GetSystemService (Context.LayoutInflaterService);
             }
 
             public override long GetItemId(int position)
@@ -57,7 +57,6 @@ namespace XamChat.Droid
             {
                 if (convertView == null)
                 {
-                    LayoutInflater inflator = (LayoutInflater)context.GetSystemService (Context.LayoutInflaterService);
                     convertView = inflator.Inflate (Resource.Layout.ConversationListItem, null);
                 }
 
