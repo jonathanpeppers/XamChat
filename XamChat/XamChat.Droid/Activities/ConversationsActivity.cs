@@ -33,9 +33,16 @@ namespace XamChat.Droid
         {
             base.OnResume();
 
-            await viewModel.GetConversations();
+            try
+            {
+                await viewModel.GetConversations();
 
-            adapter.NotifyDataSetInvalidated();
+                adapter.NotifyDataSetInvalidated();
+            }
+            catch (Exception exc)
+            {
+                DisplayError(exc);
+            }
         }
 
         class Adapter : BaseAdapter<Conversation>
