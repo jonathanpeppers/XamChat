@@ -92,6 +92,7 @@
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\ConversationsActivity.cs" />
     <Compile Include="Activities\FriendsActivity.cs" />
+    <Compile Include="Activities\MessagesActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -107,6 +108,7 @@
     <AndroidResource Include="Resources\menu\ConversationsMenu.axml" />
     <AndroidResource Include="Resources\layout\Friends.axml" />
     <AndroidResource Include="Resources\layout\FriendListItem.axml" />
+    <AndroidResource Include="Resources\layout\Messages.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
