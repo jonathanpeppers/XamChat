@@ -9,7 +9,7 @@ using XamChat.Core;
 
 namespace XamChat.Droid
 {
-    [Activity(Label = "@string/ApplicationName", Theme = "@android:style/Theme.Holo.Light", MainLauncher = true)]
+    [Activity(Label = "@string/ApplicationName", MainLauncher = true)]
     public class LoginActivity : BaseActivity<LoginViewModel>
     {
         EditText username, password;

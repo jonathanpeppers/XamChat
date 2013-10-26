@@ -12,7 +12,7 @@ using XamChat.Core;
 
 namespace XamChat.Droid
 {
-    [Application]
+    [Application(Theme = "@android:style/Theme.Holo.Light")]
     public class Application : Android.App.Application
     {
         public Application(IntPtr javaReference, JniHandleOwnership transfer)

@@ -12,7 +12,7 @@ using XamChat.Core;
 
 namespace XamChat.Droid
 {
-    [Activity(Label = "Friends", Theme = "@android:style/Theme.Holo.Light")]			
+    [Activity(Label = "Friends")]			
     public class FriendsActivity : BaseActivity<FriendViewModel>
     {
         ListView listView;

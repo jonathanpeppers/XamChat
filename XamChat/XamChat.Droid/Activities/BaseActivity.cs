@@ -29,6 +29,7 @@ namespace XamChat.Droid
             base.OnCreate(bundle);
 
             progress = new ProgressDialog(this);
+            progress.SetCancelable(false);
             progress.SetTitle(Resource.String.Loading);
         }
 
