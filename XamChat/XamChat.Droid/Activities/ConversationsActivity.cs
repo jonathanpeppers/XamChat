@@ -55,7 +55,7 @@ namespace XamChat.Droid
         {
             if (item.ItemId == Resource.Id.addFriendMenu)
             {
-                //TODO: launch the next activity
+                StartActivity(typeof(FriendsActivity));
             }
             return base.OnOptionsItemSelected(item);
         }
@@ -63,11 +63,11 @@ namespace XamChat.Droid
         class Adapter : BaseAdapter<Conversation>
         {
             readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
-            readonly LayoutInflater inflator;
+            readonly LayoutInflater inflater;
 
             public Adapter(Context context)
             {
-                inflator = (LayoutInflater)context.GetSystemService (Context.LayoutInflaterService);
+                inflater = (LayoutInflater)context.GetSystemService (Context.LayoutInflaterService);
             }
 
             public override long GetItemId(int position)
@@ -79,7 +79,7 @@ namespace XamChat.Droid
             {
                 if (convertView == null)
                 {
-                    convertView = inflator.Inflate (Resource.Layout.ConversationListItem, null);
+                    convertView = inflater.Inflate (Resource.Layout.ConversationListItem, null);
                 }
 
                 var conversation = this [position];
