@@ -28,6 +28,14 @@ namespace XamChat.Droid
             login.Click += OnLogin;
         }
 
+        protected override void OnPause()
+        {
+            base.OnPause();
+
+            username.Text =
+                password.Text = string.Empty;
+        }
+
         async void OnLogin (object sender, EventArgs e)
         {
             viewModel.Username = username.Text;
