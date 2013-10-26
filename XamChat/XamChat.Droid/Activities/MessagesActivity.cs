@@ -45,6 +45,8 @@ namespace XamChat.Droid
                     await viewModel.SendMessage();
 
                     messageText.Text = string.Empty;
+                    adapter.NotifyDataSetInvalidated();
+                    listView.SetSelection(adapter.Count);
                 }
                 catch (Exception exc)
                 {
@@ -62,6 +64,7 @@ namespace XamChat.Droid
                 await viewModel.GetMessages();
 
                 adapter.NotifyDataSetInvalidated();
+                listView.SetSelection(adapter.Count);
             }
             catch (Exception exc)
             {
