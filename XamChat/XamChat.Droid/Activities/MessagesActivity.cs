@@ -34,7 +34,7 @@ namespace XamChat.Droid
             sendButton = FindViewById<Button>(Resource.Id.sendButton);
 
             listView.Adapter =
-                adapter = new Adapter();
+                adapter = new Adapter(this);
 
             sendButton.Click += async (sender, e) => 
             {
@@ -69,10 +69,24 @@ namespace XamChat.Droid
             }
         }
 
+        protected override void OnStop()
+        {
+            base.OnStop();
+
+            viewModel.Clear();
+        }
+
         class Adapter : BaseAdapter<Message>
         {
             readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
             readonly ISettings settings = ServiceContainer.Resolve<ISettings>();
+            readonly LayoutInflater inflater;
+            const int MyMessageType = 0, TheirMessageType = 1;
+
+            public Adapter (Context context)
+            {
+                inflater = (LayoutInflater)context.GetSystemService (Context.LayoutInflaterService);
+            }
 
             public override long GetItemId(int position)
             {
@@ -81,7 +95,36 @@ namespace XamChat.Droid
 
             public override View GetView(int position, View convertView, ViewGroup parent)
             {
-                throw new NotImplementedException();
+                var message = this [position];
+                int type = GetItemViewType(position);
+
+                if (convertView == null)
+                {
+                    if (type == MyMessageType)
+                    {
+                        convertView = inflater.Inflate(Resource.Layout.MyMessageListItem, null);
+                    }
+                    else
+                    {
+                        convertView = inflater.Inflate(Resource.Layout.TheirMessageListItem, null);
+                    }
+                }
+
+                TextView messageText, dateText;
+                if (type == MyMessageType)
+                {
+                    messageText = convertView.FindViewById<TextView>(Resource.Id.myMessageText);
+                    dateText = convertView.FindViewById<TextView>(Resource.Id.myMessageDate);
+                }
+                else
+                {
+                    messageText = convertView.FindViewById<TextView>(Resource.Id.theirMessageText);
+                    dateText = convertView.FindViewById<TextView>(Resource.Id.theirMessageDate);
+                }
+
+                messageText.Text = message.Text;
+                dateText.Text = message.Date.ToString("MM/dd/yy H:mm");
+                return convertView;
             }
 
             public override int Count
@@ -102,7 +145,7 @@ namespace XamChat.Droid
             public override int GetItemViewType(int position)
             {
                 var message = this [position];
-                return message.UserId == settings.User.Id ? 0 : 1;
+                return message.UserId == settings.User.Id ? MyMessageType : TheirMessageType;
             }
         }
     }
