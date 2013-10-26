@@ -45,6 +45,21 @@ namespace XamChat.Droid
             }
         }
 
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.ConversationsMenu, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            if (item.ItemId == Resource.Id.addFriendMenu)
+            {
+                //TODO: launch the next activity
+            }
+            return base.OnOptionsItemSelected(item);
+        }
+
         class Adapter : BaseAdapter<Conversation>
         {
             readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();

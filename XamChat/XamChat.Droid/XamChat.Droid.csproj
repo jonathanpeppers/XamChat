@@ -103,10 +103,12 @@
     <AndroidResource Include="Resources\layout\Login.axml" />
     <AndroidResource Include="Resources\layout\Conversations.axml" />
     <AndroidResource Include="Resources\layout\ConversationListItem.axml" />
+    <AndroidResource Include="Resources\menu\ConversationsMenu.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Code\" />
     <Folder Include="Activities\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
 </Project>
