@@ -15,7 +15,7 @@ namespace XamChat.iOS
         public override void Update(Message message)
         {
             this.message.Text = message.Text;
-            this.date.Text = message.Date.ToString("MM/dd/yy H:mm");
+            this.date.Text = message.Date.ToString("MM/dd/yy HH:mm");
         }
 	}
 }

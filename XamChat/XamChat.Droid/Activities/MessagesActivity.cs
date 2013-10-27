@@ -126,7 +126,7 @@ namespace XamChat.Droid
                 }
 
                 messageText.Text = message.Text;
-                dateText.Text = message.Date.ToString("MM/dd/yy H:mm");
+                dateText.Text = message.Date.ToString("MM/dd/yy HH:mm");
                 return convertView;
             }
 
