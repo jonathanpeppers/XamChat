@@ -6,29 +6,28 @@
     <ListView
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/messageList"
+        android:layout_weight="1"
         android:stackFromBottom="true"
-        android:transcriptMode="alwaysScroll"
-        android:layout_weight="1" />
+        android:transcriptMode="alwaysScroll" />
     <RelativeLayout
         android:minWidth="25px"
         android:minHeight="25px"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center_vertical"
-            android:id="@+id/messageText"
-            android:layout_toLeftOf="@+id/sendButton" />
         <Button
             android:text="Send"
             android:layout_alignParentRight="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sendButton" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/sendButton"
+            android:layout_centerInParent="true"
+            android:id="@+id/messageText" />
     </RelativeLayout>
 </LinearLayout>
