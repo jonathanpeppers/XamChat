@@ -1,7 +1,7 @@
 using System;
 using XamChat.Core;
 
-namespace XamChat.iOS
+namespace XamChat.Core
 {
 	public class Friend
     {

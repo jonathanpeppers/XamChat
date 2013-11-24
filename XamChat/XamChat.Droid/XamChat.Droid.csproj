@@ -44,9 +44,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
-    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
-      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
@@ -55,6 +52,10 @@
     </Reference>
     <Reference Include="Xamarin.Auth.Android">
       <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <XamarinComponentReference Include="azure-mobile-services">
-      <InstallationInProgress>True</InstallationInProgress>
       <Version>1.1.0</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>

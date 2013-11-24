@@ -33,7 +33,7 @@ namespace XamChat.Droid
 
             //Models
             ServiceContainer.Register<ISettings>(() => new FakeSettings());
-            ServiceContainer.Register<IWebService>(() => new FakeWebService());
+			ServiceContainer.Register<IWebService>(() => new AzureWebService());
         }
     }
 }

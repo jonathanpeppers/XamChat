@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 using XamChat.Core;
 
-namespace XamChat.iOS
+namespace XamChat.Core
 {
 	public class AzureWebService : IWebService
     {
