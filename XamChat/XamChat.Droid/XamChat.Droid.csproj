@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Auth.Android">
+      <HintPath>..\Components\azure-mobile-services-1.1.0\lib\android\Xamarin.Auth.Android.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
@@ -93,6 +105,12 @@
     <Compile Include="Activities\ConversationsActivity.cs" />
     <Compile Include="Activities\FriendsActivity.cs" />
     <Compile Include="Activities\MessagesActivity.cs" />
+    <Compile Include="..\XamChat.iOS\Core\Azure\AzureWebService.cs">
+      <Link>Code\Azure\AzureWebService.cs</Link>
+    </Compile>
+    <Compile Include="..\XamChat.iOS\Core\Azure\Friend.cs">
+      <Link>Code\Azure\Friend.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -117,5 +135,13 @@
     <Folder Include="Code\" />
     <Folder Include="Activities\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="Code\Azure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="azure-mobile-services">
+      <InstallationInProgress>True</InstallationInProgress>
+      <Version>1.1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
   </ItemGroup>
 </Project>
