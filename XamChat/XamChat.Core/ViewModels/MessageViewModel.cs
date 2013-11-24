@@ -63,6 +63,7 @@ namespace XamChat.Core
                 var message = await service.SendMessage(new Message
                 {
                     UserId = settings.User.Id,
+					Username = settings.User.Username,
                     ConversationId = Conversation.Id,
                     Text = Text,
                     Date = DateTime.Now,
