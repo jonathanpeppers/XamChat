@@ -9,13 +9,13 @@ namespace XamChat.Core
 
         Task<User> Register(User user);
 
-        Task<User[]> GetFriends(int userId);
+		Task<User[]> GetFriends(string userId);
 
-        Task<User> AddFriend(int userId, string username);
+		Task<User> AddFriend(string userId, string username);
 
-        Task<Conversation[]> GetConversations(int userId);
+		Task<Conversation[]> GetConversations(string userId);
 
-        Task<Message[]> GetMessages(int conversationId);
+		Task<Message[]> GetMessages(string conversationId);
 
         Task<Message> SendMessage(Message message);
     }
