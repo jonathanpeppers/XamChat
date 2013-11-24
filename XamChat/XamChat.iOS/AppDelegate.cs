@@ -29,7 +29,7 @@ namespace XamChat.iOS
 			//ServiceContainer.Register<IWebService>(() => new FakeWebService());
 			ServiceContainer.Register<IWebService>(() => new AzureWebService());
 
-			LoadData();
+			//LoadData();
 
             return true;
         }

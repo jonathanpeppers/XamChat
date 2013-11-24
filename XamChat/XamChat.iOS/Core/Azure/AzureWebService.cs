@@ -31,8 +31,8 @@ namespace XamChat.iOS
 			await users.InsertAsync(me);
 			await users.InsertAsync(friend);
 
-			await friends.InsertAsync(new Friend { MyId = me.Id, UserId = friend.Id, Username = friend.Username });
-			await friends.InsertAsync(new Friend { MyId = friend.Id, UserId = me.Id, Username = me.Username });
+			await friends.InsertAsync(new Friend { MyId = me.Id, Username = friend.Username });
+			await friends.InsertAsync(new Friend { MyId = friend.Id, Username = me.Username });
 
 			var conversation = new Conversation { UserId = me.Id, Username = friend.Username, LastMessage = "HEY!" };
 
@@ -79,33 +79,31 @@ namespace XamChat.iOS
 		public async Task<User[]> GetFriends(string userId)
 		{
 			var list = await client.GetTable<Friend>().Where(f => f.MyId == userId).ToListAsync();
-
 			return list.Select(f => new User { Id = f.UserId, Username = f.Username}).ToArray();
 		}
 
-		public Task<User> AddFriend(string userId, string username)
+		public async Task<User> AddFriend(string userId, string username)
 		{
-			throw new NotImplementedException();
+			var friend = new Friend { MyId = userId, Username = username };
+			await client.GetTable<Friend>().InsertAsync(friend);
+			return new User { Id = friend.UserId, Username = friend.Username };
 		}
 
 		public async Task<Conversation[]> GetConversations(string userId)
 		{
 			var list = await client.GetTable<Conversation>().Where(c => c.UserId == userId).ToListAsync();
-
 			return list.ToArray();
 		}
 
 		public async Task<Message[]> GetMessages(string conversationId)
 		{
 			var list = await client.GetTable<Message>().Where(m => m.ConversationId == conversationId).ToListAsync();
-
 			return list.ToArray();
 		}
 
 		public async Task<Message> SendMessage(Message message)
 		{
 			await client.GetTable<Message>().InsertAsync(message);
-
 			return message;
 		}
     }
