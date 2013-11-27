@@ -182,6 +182,7 @@
     <Compile Include="Views\BaseMessageCell.cs" />
     <Compile Include="Core\Azure\AzureWebService.cs" />
     <Compile Include="Core\Azure\Friend.cs" />
+    <Compile Include="Core\Azure\Device.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />

@@ -116,6 +116,9 @@
     <Compile Include="..\XamChat.iOS\Core\Azure\Friend.cs">
       <Link>Code\Azure\Friend.cs</Link>
     </Compile>
+    <Compile Include="..\XamChat.iOS\Core\Azure\Device.cs">
+      <Link>Code\Azure\Device.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -18,6 +18,8 @@ namespace XamChat.Core
 		Task<Message[]> GetMessages(string conversationId);
 
         Task<Message> SendMessage(Message message);
+
+		Task RegisterPush(string userId, string deviceToken);
     }
 }
 

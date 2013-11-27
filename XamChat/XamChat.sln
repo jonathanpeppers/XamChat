@@ -111,6 +111,6 @@ Global
 		{9DCEEB5F-AA30-4526-8FA2-3817B3710624} = {64227C8B-0E45-43DF-A6D9-BFC1619FA3FC}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = XamChat.Droid\XamChat.Droid.csproj
+		StartupItem = XamChat.iOS\XamChat.iOS.csproj
 	EndGlobalSection
 EndGlobal

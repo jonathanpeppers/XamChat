@@ -106,6 +106,11 @@ namespace XamChat.Core
 			await client.GetTable<Message>().InsertAsync(message);
 			return message;
 		}
+
+		public async Task RegisterPush(string userId, string deviceToken)
+		{
+			await client.GetTable<Device>().InsertAsync(new Device { UserId = userId, DeviceToken = deviceToken });
+		}
     }
 }
 
