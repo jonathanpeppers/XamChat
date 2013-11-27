@@ -28,6 +28,14 @@ namespace XamChat.Core
                 IsBusy = false;
             }
         }
+
+		public async Task RegisterPush(string deviceToken)
+		{
+			if (settings.User == null)
+				throw new Exception("User is null");
+
+			await service.RegisterPush(settings.User.Id, deviceToken);
+		}
     }
 }
 
