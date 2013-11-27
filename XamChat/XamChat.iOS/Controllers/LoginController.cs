@@ -69,6 +69,11 @@ namespace XamChat.iOS
             {
                 await loginViewModel.Login();
 
+				UIApplication.SharedApplication.RegisterForRemoteNotificationTypes(
+					UIRemoteNotificationType.Alert | 
+					UIRemoteNotificationType.Badge | 
+					UIRemoteNotificationType.Sound);
+
                 PerformSegue("OnLogin", this);
             }
             catch (Exception exc)
