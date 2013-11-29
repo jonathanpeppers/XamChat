@@ -21,7 +21,7 @@ namespace XamChat.Droid
 	public static class PushConstants
 	{
 		public const string BundleId = "com.jonathanpeppers.xamchat";
-		public const string ProjectId = "370328391848";
+		public const string ProjectNumber = "370328391848";
 	}
 }
 

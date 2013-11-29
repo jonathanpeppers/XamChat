@@ -47,7 +47,7 @@ namespace XamChat.Droid
                 await viewModel.Login();
 
 				//Setup push notifications
-				PushClient.Register(this, PushConstants.ProjectId);
+				PushClient.Register(this, PushConstants.ProjectNumber);
 
 				//Navigate
                 StartActivity(typeof(ConversationsActivity));

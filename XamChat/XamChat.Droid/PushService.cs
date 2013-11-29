@@ -17,7 +17,7 @@ namespace XamChat.Droid
 	[Service]
 	public class PushHandlerService : PushHandlerServiceBase
 	{
-		public PushHandlerService() : base (PushConstants.ProjectId) 
+		public PushHandlerService() : base (PushConstants.ProjectNumber) 
 		{
 
 		}
