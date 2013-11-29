@@ -61,13 +61,6 @@ namespace XamChat.Droid
 			Console.WriteLine("Push unregistered!");
 		}
 
-		protected override bool OnRecoverableError (Context context, string errorId)
-		{
-			Console.WriteLine("Push warning: " + errorId);
-
-			return base.OnRecoverableError (context, errorId);
-		}
-
 		protected override void OnError (Context context, string errorId)
 		{
 			Console.WriteLine("Push error: " + errorId);
