@@ -34,7 +34,7 @@ namespace XamChat.Core
 			await friends.InsertAsync(new Friend { MyId = me.Id, Username = friend.Username });
 			await friends.InsertAsync(new Friend { MyId = friend.Id, Username = me.Username });
 
-			var conversation = new Conversation { UserId = me.Id, Username = friend.Username, LastMessage = "HEY!" };
+			var conversation = new Conversation { MyId = me.Id, UserId = friend.Id, Username = friend.Username, LastMessage = "HEY!" };
 
 			await conversations.InsertAsync(conversation);
 			await messages.InsertAsync(new Message
@@ -91,7 +91,7 @@ namespace XamChat.Core
 
 		public async Task<Conversation[]> GetConversations(string userId)
 		{
-			var list = await client.GetTable<Conversation>().Where(c => c.UserId == userId).ToListAsync();
+			var list = await client.GetTable<Conversation>().Where(c => c.MyId == userId).ToListAsync();
 			return list.ToArray();
 		}
 

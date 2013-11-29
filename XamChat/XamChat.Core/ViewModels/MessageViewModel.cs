@@ -65,6 +65,7 @@ namespace XamChat.Core
                     UserId = settings.User.Id,
 					Username = settings.User.Username,
                     ConversationId = Conversation.Id,
+					ToId = Conversation.UserId,
                     Text = Text,
                     Date = DateTime.Now,
                 });
