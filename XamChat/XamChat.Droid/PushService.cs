@@ -12,29 +12,8 @@ using Android.Util;
 using PushSharp.Client;
 using XamChat.Core;
 
-[assembly: Permission(Name = XamChat.Droid.PushConstants.BundleId + ".permission.C2D_MESSAGE")]
-[assembly: UsesPermission(Name = XamChat.Droid.PushConstants.BundleId + ".permission.C2D_MESSAGE")]
-[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-[assembly: UsesPermission(Name = "android.permission.INTERNET")]
-[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-
 namespace XamChat.Droid
 {
-	public static class PushConstants
-	{
-		public const string BundleId = "com.jonathanpeppers.xamchat";
-		public const string ProjectId = "370328391848";
-	}
-
-	[BroadcastReceiver(Permission = GCMConstants.PERMISSION_GCM_INTENTS)]
-	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { PushConstants.BundleId })]
-	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { PushConstants.BundleId })]
-	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { PushConstants.BundleId })]
-	public class PushHandlerBroadcastReceiver : PushHandlerBroadcastReceiverBase<PushHandlerService>
-	{
-	}
-
 	[Service]
 	public class PushHandlerService : PushHandlerServiceBase
 	{

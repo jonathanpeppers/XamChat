@@ -120,6 +120,8 @@
       <Link>Core\Azure\Device.cs</Link>
     </Compile>
     <Compile Include="PushService.cs" />
+    <Compile Include="PushConstants.cs" />
+    <Compile Include="PushReceiver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
