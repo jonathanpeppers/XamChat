@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using XamChat.Core;
+using PushSharp.Client;
 
 namespace XamChat.Droid
 {
@@ -34,6 +35,10 @@ namespace XamChat.Droid
             //Models
             ServiceContainer.Register<ISettings>(() => new FakeSettings());
 			ServiceContainer.Register<IWebService>(() => new AzureWebService());
+
+			//Setup push notifications
+			PushClient.CheckDevice(this);
+			PushClient.CheckManifest(this);
         }
     }
 }

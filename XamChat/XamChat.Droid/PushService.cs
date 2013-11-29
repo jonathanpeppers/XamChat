@@ -1,0 +1,98 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Android.App;
+using Android.Content;
+using Android.OS;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Android.Util;
+using PushSharp.Client;
+using XamChat.Core;
+
+[assembly: Permission(Name = XamChat.Droid.PushConstants.BundleId + ".permission.C2D_MESSAGE")]
+[assembly: UsesPermission(Name = XamChat.Droid.PushConstants.BundleId + ".permission.C2D_MESSAGE")]
+[assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
+[assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
+[assembly: UsesPermission(Name = "android.permission.INTERNET")]
+[assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
+
+namespace XamChat.Droid
+{
+	public static class PushConstants
+	{
+		public const string BundleId = "com.jonathanpeppers.xamchat";
+		public const string ProjectId = "370328391848";
+	}
+
+	[BroadcastReceiver(Permission = GCMConstants.PERMISSION_GCM_INTENTS)]
+	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { PushConstants.BundleId })]
+	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { PushConstants.BundleId })]
+	[IntentFilter(new string[] { GCMConstants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { PushConstants.BundleId })]
+	public class PushHandlerBroadcastReceiver : PushHandlerBroadcastReceiverBase<PushHandlerService>
+	{
+	}
+
+	[Service]
+	public class PushHandlerService : PushHandlerServiceBase
+	{
+		public PushHandlerService() : base (PushConstants.ProjectId) 
+		{
+
+		}
+
+		protected async override void OnRegistered (Context context, string registrationId)
+		{
+			Console.WriteLine("Push successfully registered!");
+
+			var loginViewModel = ServiceContainer.Resolve<LoginViewModel>();
+			try
+			{
+				await loginViewModel.RegisterPush(registrationId);
+			}
+			catch (Exception exc)
+			{
+				Console.WriteLine("Error registering push: " + exc);
+			}
+		}
+
+		protected override void OnMessage (Context context, Intent intent)
+		{
+			//Pull out the notification details
+			string title = intent.Extras.GetString("title");
+			string message = intent.Extras.GetString("message");
+
+			//Create a new intent
+			intent = new Intent(this, typeof(ConversationsActivity));
+
+			//Create the notification
+			var notification = new Notification(Android.Resource.Drawable.SymActionEmail, title);
+			notification.Flags = NotificationFlags.AutoCancel;
+			notification.SetLatestEventInfo(this, title, message, PendingIntent.GetActivity(this, 0, intent, 0));
+
+			//Send the notification through the NotificationManager
+			var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
+			notificationManager.Notify(1, notification);
+		}
+
+		protected override void OnUnRegistered(Context context, string registrationId)
+		{
+			Console.WriteLine("Push unregistered!");
+		}
+
+		protected override bool OnRecoverableError (Context context, string errorId)
+		{
+			Console.WriteLine("Push warning: " + errorId);
+
+			return base.OnRecoverableError (context, errorId);
+		}
+
+		protected override void OnError (Context context, string errorId)
+		{
+			Console.WriteLine("Push error: " + errorId);
+		}
+	}
+}
+
