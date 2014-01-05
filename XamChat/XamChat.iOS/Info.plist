@@ -20,5 +20,16 @@
 	<string>com.jonathanpeppers.xamchat</string>
 	<key>CFBundleVersion</key>
 	<string>1.0.0</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>57</string>
+		<string>114</string>
+		<string>120</string>
+		<string>29</string>
+		<string>58</string>
+		<string>80</string>
+	</array>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 </dict>
 </plist>

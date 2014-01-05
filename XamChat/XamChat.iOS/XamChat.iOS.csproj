@@ -194,4 +194,12 @@
       <Visible>False</Visible>
     </XamarinComponentReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\29.png" />
+    <BundleResource Include="Resources\57.png" />
+    <BundleResource Include="Resources\58.png" />
+    <BundleResource Include="Resources\80.png" />
+    <BundleResource Include="Resources\114.png" />
+    <BundleResource Include="Resources\120.png" />
+  </ItemGroup>
 </Project>
