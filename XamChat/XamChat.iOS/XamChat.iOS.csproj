@@ -80,7 +80,10 @@
     <WarningLevel>4</WarningLevel>
     <CodesignKey>iPhone Distribution</CodesignKey>
     <ConsolePause>false</ConsolePause>
-    <CodesignProvision>Automatic:AppStore</CodesignProvision>
+    <CodesignProvision>448985F6-B5CC-4564-91F6-798D873FD051</CodesignProvision>
+    <MtouchI18n>
+    </MtouchI18n>
+    <MtouchArch>ARMv7</MtouchArch>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -201,5 +204,6 @@
     <BundleResource Include="Resources\80.png" />
     <BundleResource Include="Resources\114.png" />
     <BundleResource Include="Resources\120.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
   </ItemGroup>
 </Project>
