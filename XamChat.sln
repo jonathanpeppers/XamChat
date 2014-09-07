@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamChat.Core", "XamChat.Core\XamChat.Core.csproj", "{27350E86-ABEF-48F9-9005-42DE6A061746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamChat.Tests", "XamChat.Tests\XamChat.Tests.csproj", "{668844C5-436B-4B88-B722-B161F3D968AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{27350E86-ABEF-48F9-9005-42DE6A061746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27350E86-ABEF-48F9-9005-42DE6A061746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27350E86-ABEF-48F9-9005-42DE6A061746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27350E86-ABEF-48F9-9005-42DE6A061746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668844C5-436B-4B88-B722-B161F3D968AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668844C5-436B-4B88-B722-B161F3D968AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668844C5-436B-4B88-B722-B161F3D968AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668844C5-436B-4B88-B722-B161F3D968AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = XamChat.Core\XamChat.Core.csproj
+	EndGlobalSection
+EndGlobal
