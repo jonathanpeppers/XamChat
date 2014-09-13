@@ -99,8 +99,8 @@
     <Compile Include="Controllers\LoginController.designer.cs">
       <DependentUpon>LoginController.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConversationsController.cs" />
-    <Compile Include="ConversationsController.designer.cs">
+    <Compile Include="Controllers\ConversationsController.cs" />
+    <Compile Include="Controllers\ConversationsController.designer.cs">
       <DependentUpon>ConversationsController.cs</DependentUpon>
     </Compile>
   </ItemGroup>
