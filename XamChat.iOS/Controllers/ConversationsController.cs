@@ -17,7 +17,7 @@ namespace XamChat.iOS
 		{
 			base.ViewDidLoad();
 
-			TableView.Source = new TableSource();
+			TableView.Source = new TableSource(this);
 		}
 
 		public async override void ViewWillAppear(bool animated)
@@ -39,7 +39,13 @@ namespace XamChat.iOS
 		class TableSource : UITableViewSource
 		{
 			const string CellName = "ConversationCell";
+			readonly ConversationsController controller;
 			readonly MessageViewModel messageViewModel = ServiceContainer.Resolve<MessageViewModel>();
+
+			public TableSource(ConversationsController controller)
+			{
+				this.controller = controller;
+			}
 
 			public override int RowsInSection(UITableView tableView, int section)
 			{
@@ -58,7 +64,13 @@ namespace XamChat.iOS
 				cell.TextLabel.Text = conversation.Username;
 				return cell;
 			}
-		}
 
+			public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
+			{
+				var conversation = messageViewModel.Conversations[indexPath.Row];
+				messageViewModel.Conversation = conversation;
+				controller.PerformSegue("OnConversations", this);
+			}
+		}
 	}
 }

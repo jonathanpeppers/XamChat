@@ -107,6 +107,19 @@
     <Compile Include="Controllers\FriendsController.designer.cs">
       <DependentUpon>FriendsController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Controllers\MessagesController.designer.cs">
+      <DependentUpon>MessagesController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyMessageCell.cs" />
+    <Compile Include="Views\MyMessageCell.designer.cs">
+      <DependentUpon>MyMessageCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TheirMessageCell.cs" />
+    <Compile Include="Views\TheirMessageCell.designer.cs">
+      <DependentUpon>TheirMessageCell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BaseMessageCell.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
@@ -120,5 +133,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 </Project>
