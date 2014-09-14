@@ -56,9 +56,9 @@ namespace XamChat.Core
 
 			return new[]
 			{
-				new Conversation { Id = "1", UserId = "2" },
-				new Conversation { Id = "1", UserId = "3" },
-				new Conversation { Id = "1", UserId = "4" },	
+				new Conversation { Id = "1", UserId = "2", Username = "bobama" },
+				new Conversation { Id = "1", UserId = "3", Username = "bobloblaw" },
+				new Conversation { Id = "1", UserId = "4", Username = "gmichael" },	
 			};
 		}
 
