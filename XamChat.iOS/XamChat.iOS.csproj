@@ -103,6 +103,10 @@
     <Compile Include="Controllers\ConversationsController.designer.cs">
       <DependentUpon>ConversationsController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\FriendsController.cs" />
+    <Compile Include="Controllers\FriendsController.designer.cs">
+      <DependentUpon>FriendsController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
