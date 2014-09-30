@@ -111,3 +111,4 @@ UpgradeLog*.XML
 test-results
 Components
 .DS_Store
+Resource.designer.cs
