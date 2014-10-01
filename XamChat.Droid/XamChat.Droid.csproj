@@ -49,6 +49,8 @@
     <Compile Include="Application.cs" />
     <Compile Include="Activities\BaseActivity.cs" />
     <Compile Include="Activities\LoginActivity.cs" />
+    <Compile Include="Activities\ConversationsActivity.cs" />
+    <Compile Include="Activities\FriendsActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -57,6 +59,11 @@
     <AndroidResource Include="Resources\values\Strings.xml" />
     <AndroidResource Include="Resources\drawable\Icon.png" />
     <AndroidResource Include="Resources\layout\Login.axml" />
+    <AndroidResource Include="Resources\layout\Conversations.axml" />
+    <AndroidResource Include="Resources\layout\ConversationListItem.axml" />
+    <AndroidResource Include="Resources\menu\ConversationsMenu.axml" />
+    <AndroidResource Include="Resources\layout\Friends.axml" />
+    <AndroidResource Include="Resources\layout\FriendListItem.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
@@ -69,5 +76,6 @@
     <Folder Include="Activities\" />
     <Folder Include="Resources\layout\" />
     <Folder Include="Assets\" />
+    <Folder Include="Resources\menu\" />
   </ItemGroup>
 </Project>
