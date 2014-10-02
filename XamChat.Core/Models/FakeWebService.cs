@@ -74,6 +74,7 @@ namespace XamChat.Core
 					ConversationId = conversationId,
 					UserId = "2",
 					Text = "Hey",
+					Date = DateTime.Now.AddMinutes(-15),
 				},
 				new Message
 				{
@@ -81,6 +82,7 @@ namespace XamChat.Core
 					ConversationId = conversationId,
 					UserId = "1",
 					Text = "What's Up?",
+					Date = DateTime.Now.AddMinutes(-10),
 				},
 				new Message
 				{
@@ -88,6 +90,7 @@ namespace XamChat.Core
 					ConversationId = conversationId,
 					UserId = "2",
 					Text = "Have you seen that new movie?",
+					Date = DateTime.Now.AddMinutes(-5),
 				},
 				new Message
 				{
@@ -95,6 +98,7 @@ namespace XamChat.Core
 					ConversationId = conversationId,
 					UserId = "1",
 					Text = "It's great!",
+					Date = DateTime.Now,
 				},
 			};
 		}

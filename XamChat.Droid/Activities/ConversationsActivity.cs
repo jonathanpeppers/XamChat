@@ -26,6 +26,13 @@ namespace XamChat.Droid
 			listView = FindViewById<ListView>(Resource.Id.conversationsList);
 			listView.Adapter = 
 				adapter = new Adapter(this);
+
+			listView.ItemClick += (sender, e) => 
+			{
+				viewModel.Conversation = adapter[e.Position];
+
+				StartActivity(typeof(MessagesActivity));
+			};
 		}
 
 		public override bool OnCreateOptionsMenu(IMenu menu)

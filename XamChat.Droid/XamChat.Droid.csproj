@@ -51,6 +51,7 @@
     <Compile Include="Activities\LoginActivity.cs" />
     <Compile Include="Activities\ConversationsActivity.cs" />
     <Compile Include="Activities\FriendsActivity.cs" />
+    <Compile Include="Activities\MessagesActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -64,6 +65,9 @@
     <AndroidResource Include="Resources\menu\ConversationsMenu.axml" />
     <AndroidResource Include="Resources\layout\Friends.axml" />
     <AndroidResource Include="Resources\layout\FriendListItem.axml" />
+    <AndroidResource Include="Resources\layout\Messages.axml" />
+    <AndroidResource Include="Resources\layout\MyMessageListItem.axml" />
+    <AndroidResource Include="Resources\layout\TheirMessageListItem.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
