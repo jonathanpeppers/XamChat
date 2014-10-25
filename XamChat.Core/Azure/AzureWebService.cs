@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.WindowsAzure.MobileServices;
 
@@ -23,34 +24,44 @@ namespace XamChat.Core
 			return user;
 		}
 
-		public Task<User> Register(User user)
+		public async Task<User> Register(User user)
 		{
-			throw new NotImplementedException();
+			await client.GetTable<User>().InsertAsync(user);
+			return user;
 		}
 
-		public Task<User[]> GetFriends(string userId)
+		public async Task<User[]> GetFriends(string userId)
 		{
-			throw new NotImplementedException();
+			var list = await client.GetTable<Friend>().Where(f => f.MyId == userId).ToListAsync();
+			return list.Select(f => new User { Id = f.UserId, Username = f.Username }).ToArray();
 		}
 
-		public Task<User> AddFriend(string userId, string username)
+		public async Task<User> AddFriend(string userId, string username)
 		{
-			throw new NotImplementedException();
+			var friend = new Friend { MyId = userId, Username = username };
+			await client.GetTable<Friend>().InsertAsync(friend);
+			return new User { Id = friend.UserId, Username = friend.Username };
 		}
 
-		public Task<Conversation[]> GetConversations(string userId)
+		public async Task<Conversation[]> GetConversations(string userId)
 		{
-			throw new NotImplementedException();
+			var list = await client.GetTable<Conversation>()
+				.Where(c => c.MyId == userId).ToListAsync();
+			return list.ToArray();
 		}
 
-		public Task<Message[]> GetMessages(string conversationId)
+		public async Task<Message[]> GetMessages(string conversationId)
 		{
-			throw new NotImplementedException();
+			var list = await client.GetTable<Message>()
+				.Where(m => m.ConversationId == conversationId)
+				.ToListAsync();
+			return list.ToArray();
 		}
 
-		public Task<Message> SendMessage(Message message)
+		public async Task<Message> SendMessage(Message message)
 		{
-			throw new NotImplementedException();
+			await client.GetTable<Message>().InsertAsync(message);
+			return message;
 		}
 
 		#endregion
