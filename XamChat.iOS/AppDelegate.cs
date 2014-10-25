@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using XamChat.Core;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace XamChat.iOS
 {
@@ -27,7 +27,9 @@ namespace XamChat.iOS
 
 			//Models
 			ServiceContainer.Register<ISettings>(() => new FakeSettings());
-			ServiceContainer.Register<IWebService>(() => new FakeWebService());
+			ServiceContainer.Register<IWebService>(() => new AzureWebService());
+
+			CurrentPlatform.Init();
 
 			return true;
 		}

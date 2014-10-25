@@ -87,6 +87,6 @@ Global
 		{7E78EA58-DF6B-4092-B376-89E2B700198B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = XamChat.Droid\XamChat.Droid.csproj
+		StartupItem = XamChat.iOS\XamChat.iOS.csproj
 	EndGlobalSection
 EndGlobal
