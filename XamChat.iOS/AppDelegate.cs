@@ -31,7 +31,17 @@ namespace XamChat.iOS
 
 			CurrentPlatform.Init();
 
+			//Uncomment to seed data
+			//LoadData();
+
 			return true;
+		}
+
+		private async void LoadData()
+		{
+			var service = ServiceContainer.Resolve<IWebService>() as AzureWebService;
+
+			await service.LoadData();
 		}
 	}
 }

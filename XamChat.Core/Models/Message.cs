@@ -6,6 +6,8 @@ namespace XamChat.Core
 	{
 		public string Id { get; set; }
 
+		public string ToId { get; set; }
+
 		public string ConversationId { get; set; }
 
 		public string UserId { get; set; } 

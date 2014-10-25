@@ -54,6 +54,66 @@ namespace XamChat.Core
 		}
 
 		#endregion
+
+		public async Task LoadData()
+		{
+			var users = client.GetTable<User>();
+			var friends = client.GetTable<Friend>();
+
+			var me = new User
+			{
+				Username = "jonathanpeppers",
+				Password = "password"
+			};
+			var friend = new User
+			{
+				Username = "chucknorris",
+				Password = "password"
+			};
+
+			await users.InsertAsync(me);
+			await users.InsertAsync(friend);
+
+			await friends.InsertAsync(new Friend { MyId = me.Id, Username = friend.Username });
+			await friends.InsertAsync(new Friend { MyId = friend.Id, Username = me.Username });
+
+			var conversations = client.GetTable<Conversation>();
+			var messages = client.GetTable<Message>();
+
+			var conversation = new Conversation
+			{
+				MyId = me.Id,
+				UserId = friend.Id,
+				Username = friend.Username,
+				LastMessage = "HEY!"
+			};
+
+			await conversations.InsertAsync(conversation);
+			await messages.InsertAsync(new Message 
+			{ 
+				ConversationId = conversation.Id, 
+				ToId = me.Id,
+				UserId = friend.Id, 
+				Username = friend.Username, Text = "What's up?", 
+				Date = DateTime.Now.AddSeconds(-60),
+			});
+			await messages.InsertAsync(new Message 
+			{ 
+				ConversationId = conversation.Id, 
+				ToId = friend.Id,
+				UserId = me.Id, 
+				Username = me.Username, Text = "Not much", 
+				Date = DateTime.Now.AddSeconds(-30),
+			});
+			await messages.InsertAsync(new Message 
+			{ 
+				ConversationId = conversation.Id, 
+				ToId = me.Id,
+				UserId = friend.Id, 
+				Username = friend.Username, Text = "HEY!", 
+				Date = DateTime.Now,
+			});
+		}
 	}
 }
 

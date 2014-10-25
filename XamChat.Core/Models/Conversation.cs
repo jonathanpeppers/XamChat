@@ -11,6 +11,8 @@ namespace XamChat.Core
 		public string Username { get; set; }
 
 		public string LastMessage { get; set; }
+
+		public string MyId { get; set; }
 	}
 }
 
