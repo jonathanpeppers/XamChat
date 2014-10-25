@@ -9,6 +9,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using XamChat.Core;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace XamChat.Droid
 {
@@ -33,7 +34,9 @@ namespace XamChat.Droid
 
 			//Models
 			ServiceContainer.Register<ISettings>(() => new FakeSettings());
-			ServiceContainer.Register<IWebService>(() => new FakeWebService());
+			ServiceContainer.Register<IWebService>(() => new AzureWebService());
+
+			CurrentPlatform.Init();
 		}
 	}
 }
