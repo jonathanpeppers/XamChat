@@ -46,6 +46,7 @@
     <Compile Include="ViewModels\MessageViewModel.cs" />
     <Compile Include="Azure\AzureWebService.cs" />
     <Compile Include="Azure\Friend.cs" />
+    <Compile Include="Azure\Device.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>

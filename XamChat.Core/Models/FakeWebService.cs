@@ -109,5 +109,10 @@ namespace XamChat.Core
 
 			return message;
 		}
+
+		public async Task RegisterPush(string userId, string deviceToken)
+		{
+			await Sleep();
+		}
 	}
 }

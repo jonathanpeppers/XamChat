@@ -10,6 +10,7 @@ using Android.Views;
 using Android.Widget;
 using XamChat.Core;
 using Microsoft.WindowsAzure.MobileServices;
+using PushSharp.Client;
 
 namespace XamChat.Droid
 {
@@ -36,7 +37,12 @@ namespace XamChat.Droid
 			ServiceContainer.Register<ISettings>(() => new FakeSettings());
 			ServiceContainer.Register<IWebService>(() => new AzureWebService());
 
+			//Azure Mobile Services
 			CurrentPlatform.Init();
+
+			//PushSharp
+			PushClient.CheckDevice(this);
+			PushClient.CheckManifest(this);
 		}
 	}
 }

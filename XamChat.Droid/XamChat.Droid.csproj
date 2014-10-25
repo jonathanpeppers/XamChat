@@ -68,6 +68,9 @@
     <Compile Include="Activities\ConversationsActivity.cs" />
     <Compile Include="Activities\FriendsActivity.cs" />
     <Compile Include="Activities\MessagesActivity.cs" />
+    <Compile Include="Utilities\PushConstants.cs" />
+    <Compile Include="Utilities\PushReceiver.cs" />
+    <Compile Include="Utilities\PushService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -92,11 +95,16 @@
       <Project>{27350E86-ABEF-48F9-9005-42DE6A061746}</Project>
       <Name>XamChat.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dependencies\PushSharp\PushSharp.Client\PushSharp.Client.MonoForAndroid.Gcm\PushSharp.Client.MonoForAndroid.Gcm.csproj">
+      <Project>{1466D096-69FA-4B75-BBB6-533FFAF5D4EB}</Project>
+      <Name>PushSharp.Client.MonoForAndroid.Gcm</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activities\" />
     <Folder Include="Resources\layout\" />
     <Folder Include="Assets\" />
     <Folder Include="Resources\menu\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
 </Project>
