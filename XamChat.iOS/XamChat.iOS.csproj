@@ -103,6 +103,23 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-40%403x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-72%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-76%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%402x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small%403x.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50.png" />
+    <BundleResource Include="Resources\Images.xcassets\AppIcons.appiconset\Icon-Small-50%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -151,5 +168,8 @@
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\AppIcons.appiconset\Contents.json" />
   </ItemGroup>
 </Project>
