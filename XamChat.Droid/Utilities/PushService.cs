@@ -40,7 +40,9 @@ namespace XamChat.Droid
 			var notification = new Notification(
 				Android.Resource.Drawable.SymActionEmail, title);
 			notification.Flags = NotificationFlags.AutoCancel;
-			notification.SetLatestEventInfo(this, title, message, 
+			notification.SetLatestEventInfo(this, 
+				new Java.Lang.String(title), 
+				new Java.Lang.String(message), 
 				PendingIntent.GetActivity(this, 0, intent, 0));
 
 			//Send the notification through the NotificationManager
